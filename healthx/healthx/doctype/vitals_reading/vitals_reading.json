@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-11-11 19:02:59.300674",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "device",
+  "patient",
+  "heart_rate",
+  "spo2",
+  "bp",
+  "tempreature",
+  "fall_detected",
+  "timestamp"
+ ],
+ "fields": [
+  {
+   "fieldname": "device",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Device",
+   "options": "Device",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "device.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "label": "Patient",
+   "options": "Patient"
+  },
+  {
+   "fieldname": "heart_rate",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Heart Rate"
+  },
+  {
+   "fieldname": "spo2",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "SPO2"
+  },
+  {
+   "fieldname": "bp",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "BP"
+  },
+  {
+   "fieldname": "tempreature",
+   "fieldtype": "Float",
+   "label": "Tempreature"
+  },
+  {
+   "default": "0",
+   "fieldname": "fall_detected",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Fall Detected"
+  },
+  {
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "label": "Timestamp"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "VR-"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-11 19:14:01.484069",
+ "modified_by": "Administrator",
+ "module": "Healthx",
+ "name": "Vitals Reading",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

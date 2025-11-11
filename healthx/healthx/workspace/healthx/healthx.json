@@ -1,0 +1,398 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"kilfqRtlDm\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HealthX Hub \u2013 Centralized Control for Modern Healthcare</span>\",\"col\":12}},{\"id\":\"KYwJDK1lhN\",\"type\":\"card\",\"data\":{\"card_name\":\"Core Master Data\",\"col\":4}},{\"id\":\"FYrSkmnOEE\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ngLWZuDLAg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Clinical Operations<b></b></span>\",\"col\":12}},{\"id\":\"W6Q0Ov7xkk\",\"type\":\"card\",\"data\":{\"card_name\":\"Clinic & Appointment Management\",\"col\":4}},{\"id\":\"iYrpF7Dcv-\",\"type\":\"card\",\"data\":{\"card_name\":\"Treatment & Packages\",\"col\":4}},{\"id\":\"m4l_JVrDcL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"8aKqrY_vJr\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Telemedicine &amp; Homecare<b></b></span>\",\"col\":12}},{\"id\":\"ZdBBLh7HTf\",\"type\":\"card\",\"data\":{\"card_name\":\"Online Consultation\",\"col\":4}},{\"id\":\"oyB9rH-A51\",\"type\":\"card\",\"data\":{\"card_name\":\"Healthcare At Home\",\"col\":4}},{\"id\":\"c5v0rp8RAy\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"jp6Yf3MYL8\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pharmacy &amp; Devices<b></b></span>\",\"col\":12}},{\"id\":\"XE2DSndSTN\",\"type\":\"card\",\"data\":{\"card_name\":\"Pharmacy & Medicine Delivery\",\"col\":4}},{\"id\":\"edUB4IaL2S\",\"type\":\"card\",\"data\":{\"card_name\":\"Wearable Device Integration\",\"col\":4}}]",
+ "creation": "2025-11-11 17:26:49.219350",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "non-profit",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "HealthX",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Online Consultation Handling",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Online Consultation",
+   "link_count": 0,
+   "link_to": "Online Consultation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Wearable Integration",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Device",
+   "link_count": 0,
+   "link_to": "Device",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Device Type",
+   "link_count": 0,
+   "link_to": "Device Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Alert Log",
+   "link_count": 0,
+   "link_to": "Alert Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Alert Type",
+   "link_count": 0,
+   "link_to": "Alert Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vitals Reading",
+   "link_count": 0,
+   "link_to": "Vitals Reading",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Foundational records that power all other modules.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Core Master Data",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Doctor",
+   "link_count": 0,
+   "link_to": "Doctor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Patient",
+   "link_count": 0,
+   "link_to": "Patient",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Speciality",
+   "link_count": 0,
+   "link_to": "Speciality",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Tools to run in-person visits and scheduling.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Clinic & Appointment Management",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Clinic Visit",
+   "link_count": 0,
+   "link_to": "Clinic Visit",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Queue Token",
+   "link_count": 0,
+   "link_to": "Queue Token",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Invoice",
+   "link_count": 0,
+   "link_to": "Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Doctor Schedule",
+   "link_count": 0,
+   "link_to": "Doctor Schedule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Doctor Appointment",
+   "link_count": 0,
+   "link_to": "Doctor Appointment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "List and manage medical treatments, packages, and reviews.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Treatment & Packages",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Procedure",
+   "link_count": 0,
+   "link_to": "Procedure",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Treatement Package",
+   "link_count": 0,
+   "link_to": "Treatement Package",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Doctor Review",
+   "link_count": 0,
+   "link_to": "Doctor Review",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Enable remote telemedicine and virtual appointments.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Online Consultation",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Online Consultation",
+   "link_count": 0,
+   "link_to": "Online Consultation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Extend healthcare services beyond the clinic.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Healthcare At Home",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Home Service",
+   "link_count": 0,
+   "link_to": "Home Service",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Service Request",
+   "link_count": 0,
+   "link_to": "Service Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Home Report",
+   "link_count": 0,
+   "link_to": "Home Report",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Streamline medication ordering and delivery tracking.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pharmacy & Medicine Delivery",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pharmacy",
+   "link_count": 0,
+   "link_to": "Pharmacy",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Medicine Order",
+   "link_count": 0,
+   "link_to": "Medicine Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Monitor patient health using connected devices.",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Wearable Device Integration",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Device",
+   "link_count": 0,
+   "link_to": "Device",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Device Type",
+   "link_count": 0,
+   "link_to": "Device Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Alert Log",
+   "link_count": 0,
+   "link_to": "Alert Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Alert Type",
+   "link_count": 0,
+   "link_to": "Alert Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vitals Reading",
+   "link_count": 0,
+   "link_to": "Vitals Reading",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-11-11 19:32:02.455430",
+ "modified_by": "Administrator",
+ "module": "Healthx",
+ "name": "HealthX",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 28.0,
+ "shortcuts": [],
+ "title": "HealthX"
+}
