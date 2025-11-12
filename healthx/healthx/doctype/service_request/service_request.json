@@ -27,7 +27,6 @@
    "fieldname": "service_type",
    "fieldtype": "Link",
    "in_filter": 1,
-   "in_list_view": 1,
    "label": "Service Type",
    "options": "Home Service",
    "reqd": 1
@@ -37,6 +36,7 @@
    "fieldname": "service_name",
    "fieldtype": "Data",
    "in_global_search": 1,
+   "in_list_view": 1,
    "label": "Service Name",
    "read_only": 1,
    "search_index": 1
@@ -52,6 +52,7 @@
    "fetch_from": "service_type.base_rate",
    "fieldname": "base_rate",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Base Rate",
    "read_only": 1
   },
@@ -61,6 +62,7 @@
    "in_filter": 1,
    "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Doctor",
    "options": "Doctor",
    "reqd": 1,
@@ -71,6 +73,7 @@
    "fieldtype": "Date",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Visit Date",
    "reqd": 1,
    "search_index": 1
@@ -80,14 +83,25 @@
    "fieldtype": "Select",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Scheduled\nOngoing\nCompleted"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-11-11 18:50:17.088855",
+ "links": [
+  {
+   "link_doctype": "Invoice",
+   "link_fieldname": "service_request"
+  },
+  {
+   "custom": 1,
+   "link_doctype": "Home Report",
+   "link_fieldname": "service_request"
+  }
+ ],
+ "modified": "2025-11-12 13:48:38.466711",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Service Request",

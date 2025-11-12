@@ -30,6 +30,8 @@
    "fetch_from": "device.patient",
    "fieldname": "patient",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Patient",
    "options": "Patient"
   },
@@ -62,11 +64,13 @@
    "fieldtype": "Check",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Fall Detected"
   },
   {
    "fieldname": "timestamp",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
    "label": "Timestamp"
   },
   {
@@ -80,7 +84,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-11 19:14:01.484069",
+ "modified": "2025-11-12 13:58:42.811586",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Vitals Reading",

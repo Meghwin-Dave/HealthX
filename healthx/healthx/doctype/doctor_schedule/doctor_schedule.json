@@ -19,6 +19,7 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Doctor",
    "options": "Doctor",
    "reqd": 1,
@@ -28,6 +29,7 @@
    "fieldname": "start_time",
    "fieldtype": "Time",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Start Time",
    "reqd": 1
   },
@@ -35,6 +37,7 @@
    "fieldname": "end_time",
    "fieldtype": "Time",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "End Time",
    "reqd": 1
   },
@@ -42,6 +45,7 @@
    "fieldname": "slot_duration_min",
    "fieldtype": "Int",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Slot Duration Min",
    "reqd": 1
   },
@@ -57,7 +61,6 @@
    "fieldtype": "Select",
    "hidden": 1,
    "in_filter": 1,
-   "in_list_view": 1,
    "label": "Naming Series",
    "options": "DS-"
   }
@@ -65,7 +68,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-11 17:50:54.886670",
+ "modified": "2025-11-12 12:30:46.812776",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Doctor Schedule",

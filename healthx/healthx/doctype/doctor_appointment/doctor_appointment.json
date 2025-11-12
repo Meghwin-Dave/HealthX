@@ -93,8 +93,13 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-11-11 17:57:09.762461",
+ "links": [
+  {
+   "link_doctype": "Invoice",
+   "link_fieldname": "appointment"
+  }
+ ],
+ "modified": "2025-11-12 12:39:41.203658",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Doctor Appointment",

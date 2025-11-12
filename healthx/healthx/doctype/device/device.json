@@ -17,6 +17,7 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Naming Series",
@@ -61,8 +62,17 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-11-11 18:57:23.487300",
+ "links": [
+  {
+   "link_doctype": "Alert Log",
+   "link_fieldname": "device"
+  },
+  {
+   "link_doctype": "Vitals Reading",
+   "link_fieldname": "device"
+  }
+ ],
+ "modified": "2025-11-12 13:58:10.582450",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Device",

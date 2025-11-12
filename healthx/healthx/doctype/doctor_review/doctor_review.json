@@ -7,11 +7,11 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "date",
   "doctor",
   "patient",
   "rating",
-  "feedback",
-  "date"
+  "feedback"
  ],
  "fields": [
   {
@@ -26,6 +26,7 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Doctor",
    "options": "Doctor",
    "reqd": 1
@@ -35,6 +36,7 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Patient",
    "options": "Patient",
    "reqd": 1
@@ -43,24 +45,30 @@
    "fieldname": "rating",
    "fieldtype": "Rating",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Rating",
    "reqd": 1
   },
   {
    "fieldname": "feedback",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Feedback"
   },
   {
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Date"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-11 18:25:02.598495",
+ "modified": "2025-11-12 13:18:04.530870",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Doctor Review",

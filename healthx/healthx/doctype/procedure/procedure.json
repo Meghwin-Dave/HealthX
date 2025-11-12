@@ -33,6 +33,7 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Speciality",
    "options": "Speciality",
    "reqd": 1
@@ -40,12 +41,15 @@
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Description"
   },
   {
    "fieldname": "price",
    "fieldtype": "Currency",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Price",
    "reqd": 1
   }
@@ -53,7 +57,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-11 18:16:23.716018",
+ "modified": "2025-11-12 12:40:49.325340",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Procedure",

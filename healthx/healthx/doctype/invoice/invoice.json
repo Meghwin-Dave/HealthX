@@ -10,15 +10,18 @@
   "amended_from",
   "naming_series",
   "date",
-  "visit",
   "patient",
-  "payment_mode",
-  "payment_status",
+  "visit",
+  "appointment",
+  "treatement_package",
+  "service_request",
   "column_break_hfaa",
   "currency",
   "total_amount",
   "discount",
-  "amount_after_discount"
+  "amount_after_discount",
+  "payment_mode",
+  "payment_status"
  ],
  "fields": [
   {
@@ -47,9 +50,10 @@
    "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Visit",
    "options": "Clinic Visit",
-   "reqd": 1
+   "search_index": 1
   },
   {
    "fieldname": "patient",
@@ -57,6 +61,7 @@
    "in_filter": 1,
    "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Patient",
    "options": "Patient",
    "reqd": 1,
@@ -81,6 +86,7 @@
    "fieldtype": "Select",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Payment Status",
    "options": "Pending\nPaid"
   },
@@ -105,6 +111,7 @@
    "fieldtype": "Date",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Date",
    "reqd": 1,
    "search_index": 1
@@ -114,15 +121,46 @@
    "fieldtype": "Select",
    "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Payment Mode",
    "options": "Cash\nCard\nUPI"
+  },
+  {
+   "fieldname": "appointment",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Appointment",
+   "options": "Doctor Appointment",
+   "search_index": 1
+  },
+  {
+   "fieldname": "treatement_package",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Treatement Package",
+   "options": "Treatement Package",
+   "search_index": 1
+  },
+  {
+   "fieldname": "service_request",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Request",
+   "options": "Service Request",
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-11 17:25:52.315993",
+ "modified": "2025-11-12 13:41:33.909977",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Invoice",

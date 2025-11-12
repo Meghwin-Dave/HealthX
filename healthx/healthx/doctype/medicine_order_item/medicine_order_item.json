@@ -13,9 +13,10 @@
  "fields": [
   {
    "fieldname": "drug_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Drug Name",
+   "options": "Drug",
    "reqd": 1
   },
   {
@@ -36,7 +37,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-11 18:30:53.534875",
+ "modified": "2025-11-12 14:02:50.813977",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Medicine Order Item",

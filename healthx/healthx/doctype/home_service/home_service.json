@@ -30,18 +30,22 @@
   {
    "fieldname": "description",
    "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Description"
   },
   {
    "fieldname": "base_rate",
    "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Base Rate"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-11 18:41:22.228948",
+ "modified": "2025-11-12 13:26:17.661338",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Home Service",

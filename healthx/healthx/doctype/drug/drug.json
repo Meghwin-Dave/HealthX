@@ -1,20 +1,20 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:device_name",
- "creation": "2025-11-11 18:55:58.156128",
+ "autoname": "field:drug_name",
+ "creation": "2025-11-12 14:00:25.967009",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "device_name"
+  "drug_name"
  ],
  "fields": [
   {
-   "fieldname": "device_name",
+   "fieldname": "drug_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Device Name",
+   "label": "Drug Name",
    "reqd": 1,
    "unique": 1
   }
@@ -22,10 +22,10 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-12 14:02:13.671071",
+ "modified": "2025-11-12 14:01:01.070376",
  "modified_by": "Administrator",
  "module": "Healthx",
- "name": "Device Type",
+ "name": "Drug",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -47,5 +47,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "device_name"
+ "title_field": "drug_name"
 }

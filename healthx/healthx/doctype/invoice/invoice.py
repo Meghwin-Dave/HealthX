@@ -6,7 +6,7 @@ class Invoice(Document):
         if not self.date:
             self.date = frappe.utils.nowdate()
 
-        if not self.total_amount or self.total_amount <= 0:
+        if self.total_amount < 0:
             frappe.throw("Total Amount must be greater than zero.")
 
         if self.discount and (self.discount < 0 or self.discount > 100):
