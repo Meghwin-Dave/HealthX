@@ -8,7 +8,9 @@
  "field_order": [
   "naming_series",
   "patient",
+  "patient_name",
   "doctor",
+  "doctor_name",
   "visit_type",
   "billing_status",
   "consultation_status"
@@ -24,8 +26,8 @@
   {
    "fieldname": "patient",
    "fieldtype": "Link",
-   "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Patient",
    "options": "Patient",
    "reqd": 1,
@@ -35,6 +37,8 @@
    "fieldname": "visit_type",
    "fieldtype": "Select",
    "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Visit Type",
    "options": "\nWalk-in\nAppointment\nOnline",
    "search_index": 1
@@ -42,30 +46,63 @@
   {
    "fieldname": "billing_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Billing Status",
    "options": "\nPending\nPaid"
   },
   {
    "fieldname": "consultation_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Consultation Status",
-   "options": "\nWaiting\nIn-Progress\nCompleted"
+   "options": "Waiting\nIn-Progress\nCompleted"
   },
   {
    "fieldname": "doctor",
    "fieldtype": "Link",
-   "in_global_search": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Doctor",
    "options": "Doctor",
    "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.full_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_global_search": 1,
+   "in_preview": 1,
+   "label": "Patient Name",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "doctor.full_name",
+   "fieldname": "doctor_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_global_search": 1,
+   "in_preview": 1,
+   "label": "Doctor Name",
    "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-11-11 17:15:01.225051",
+ "links": [
+  {
+   "link_doctype": "Queue Token",
+   "link_fieldname": "visit"
+  },
+  {
+   "link_doctype": "Invoice",
+   "link_fieldname": "visit"
+  }
+ ],
+ "modified": "2025-11-12 12:16:52.615880",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Clinic Visit",
@@ -86,7 +123,9 @@
   }
  ],
  "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "patient_name"
 }

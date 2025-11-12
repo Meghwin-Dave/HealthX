@@ -61,8 +61,49 @@
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-11-11 16:40:01.274721",
+ "links": [
+  {
+   "group": "Clinic & Appointments",
+   "link_doctype": "Clinic Visit",
+   "link_fieldname": "doctor"
+  },
+  {
+   "group": "Clinic & Appointments",
+   "link_doctype": "Queue Token",
+   "link_fieldname": "doctor"
+  },
+  {
+   "group": "Clinic & Appointments",
+   "link_doctype": "Doctor Appointment",
+   "link_fieldname": "doctor"
+  },
+  {
+   "group": "Clinic & Appointments",
+   "link_doctype": "Doctor Schedule",
+   "link_fieldname": "doctor"
+  },
+  {
+   "group": "Online Consultation",
+   "link_doctype": "Online Consultation",
+   "link_fieldname": "doctor"
+  },
+  {
+   "group": "Healthcare At Home",
+   "link_doctype": "Home Report",
+   "link_fieldname": "submitted_by"
+  },
+  {
+   "group": "Healthcare At Home",
+   "link_doctype": "Service Request",
+   "link_fieldname": "doctor"
+  },
+  {
+   "group": "Feedback",
+   "link_doctype": "Doctor Review",
+   "link_fieldname": "doctor"
+  }
+ ],
+ "modified": "2025-11-12 12:10:41.230185",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Doctor",

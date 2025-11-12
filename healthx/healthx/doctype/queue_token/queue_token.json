@@ -16,12 +16,12 @@
  "fields": [
   {
    "fieldname": "token_number",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Token Number",
-   "reqd": 1
+   "no_copy": 1
   },
   {
    "fieldname": "date",
@@ -43,6 +43,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "visit.doctor",
    "fieldname": "doctor",
    "fieldtype": "Link",
    "in_filter": 1,
@@ -74,7 +75,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-11 17:05:06.825776",
+ "modified": "2025-11-12 11:54:39.711820",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Queue Token",
