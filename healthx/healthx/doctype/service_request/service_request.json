@@ -101,7 +101,7 @@
    "link_fieldname": "service_request"
   }
  ],
- "modified": "2025-11-12 13:48:38.466711",
+ "modified": "2025-11-19 17:50:34.422441",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Service Request",
@@ -119,6 +119,38 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Hospital Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Doctor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Patient",
+   "share": 1
   }
  ],
  "row_format": "Dynamic",

@@ -72,7 +72,7 @@
    "link_fieldname": "device"
   }
  ],
- "modified": "2025-11-12 13:58:10.582450",
+ "modified": "2025-11-19 17:59:35.983428",
  "modified_by": "Administrator",
  "module": "Healthx",
  "name": "Device",
@@ -88,6 +88,40 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Hospital Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Doctor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Patient",
    "share": 1,
    "write": 1
   }
