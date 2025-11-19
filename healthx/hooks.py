@@ -246,3 +246,10 @@ home_page = "index"
 login_redirects = [
     {"from_route": "/login", "to_route": "/"},
 ]
+
+fixtures = [
+	{
+		"doctype": "Role",
+		"filters": [["name", "in", ["Doctor","Patient","Hospital Admin"]]]
+	}
+]
