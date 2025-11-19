@@ -1,0 +1,70 @@
+<header class="site-header">
+  <div class="container nav-wrapper">
+    <a class="logo" href="/">HealthX</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/doctors.html" data-nav="doctors" id="nav-doctors">Doctors</a>
+      <a href="/patients.html" data-nav="patients" id="nav-patients">Patients</a>
+      <a href="/hospital.html" data-nav="hospital" id="nav-hospital">Hospital</a>
+      <a href="/#contact" data-nav="contact">Contact</a>
+    </nav>
+    <div class="nav-actions" id="nav-actions" style="display: none; align-items: center;">
+      <span id="user-name" style="margin-right: 1rem; color: #333;"></span>
+      <button class="btn secondary" id="logout-btn" type="button">Logout</button>
+    </div>
+    <a class="btn primary" href="/login.html" id="login-link">Login</a>
+  </div>
+</header>
+<script>
+  // Update navbar based on authentication and roles
+  // This will run after app.js is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateNavbar);
+  } else {
+    // DOM already loaded, wait for HealthxWeb to be available
+    setTimeout(updateNavbar, 100);
+  }
+  
+  async function updateNavbar() {
+    // Wait for HealthxWeb to be available
+    if (typeof HealthxWeb === 'undefined') {
+      setTimeout(updateNavbar, 100);
+      return;
+    }
+    
+    try {
+      const isAuthenticated = await HealthxWeb.checkAuth();
+      const loginLink = document.getElementById('login-link');
+      const navActions = document.getElementById('nav-actions');
+      const userName = document.getElementById('user-name');
+      const logoutBtn = document.getElementById('logout-btn');
+      
+      if (!loginLink || !navActions) return;
+      
+      if (isAuthenticated) {
+        loginLink.style.display = 'none';
+        navActions.style.display = 'flex';
+        
+        const user = await HealthxWeb.getCurrentUser();
+        if (user && userName) {
+          userName.textContent = user;
+        }
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', async () => {
+            await HealthxWeb.logout();
+          });
+        }
+      } else {
+        loginLink.style.display = 'block';
+        navActions.style.display = 'none';
+      }
+    } catch (error) {
+      console.error('Error updating navbar:', error);
+    }
+  }
+</script>

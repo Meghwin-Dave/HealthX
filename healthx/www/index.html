@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthX - Unified Digital Hospital Platform</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div data-include="/components/navbar.html"></div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Connected Care OS</span>
+          <h1>Deliver hospital-grade care anywhere.</h1>
+          <p>
+            HealthX unifies appointments, clinic visits, home services, vitals, and billing so hospital teams can focus on their patients—not their software.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="/doctors">Manage Doctors</a>
+            <a class="btn secondary" href="/patients">Register Patients</a>
+          </div>
+          <div class="hero-cta">
+            <a class="btn primary" href="/hospital">Run Hospital Ops</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="muted">Last 30 days</p>
+          <strong>24,150</strong>
+          <p>appointments orchestrated through HealthX. Real-time dashboards surface queue status, home care missions, and vitals alerts in a single view.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="list-header">
+          <div>
+            <h2>Everything modern hospitals need.</h2>
+            <p class="lead">HealthX ships with battle-tested DocTypes for doctors, patients, visits, invoices, devices, alerts, and home-care workflows.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Care teams</h3>
+            <p>Doctor, Doctor Schedule, Appointment, and Clinic Visit DocTypes keep the care loop tight and auditable.</p>
+          </div>
+          <div class="card">
+            <h3>Patient journeys</h3>
+            <p>Patient, Device, Vitals Reading, Alert Log, Home Service, and Service Request models capture every touch point.</p>
+          </div>
+          <div class="card">
+            <h3>Revenue ready</h3>
+            <p>Invoice, Package, Procedure, Pharmacy, Medicine Order, and Item DocTypes align finance ops with care delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: #eef4ff;">
+      <div class="container">
+        <h2>Orchestrate operations in three workspaces.</h2>
+        <p class="lead">We ship dedicated experiences for medical directors, patient onboarding teams, and hospital control rooms. Jump directly into the screen you need:</p>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <span class="badge">Doctors</span>
+            <strong>Smart roster</strong>
+            <p>Recruit specialists, sync schedules, and publish available slots instantly. Powered by the Doctor, Speciality, and Doctor Schedule DocTypes.</p>
+            <a class="btn secondary" href="/doctors">Open Doctors Hub</a>
+          </div>
+          <div class="highlight-card">
+            <span class="badge">Patients</span>
+            <strong>Guided intake</strong>
+            <p>Capture demographics, preferred language, and unique phone numbers in seconds—triggering devices, alerts, or home-services automatically.</p>
+            <a class="btn secondary" href="/patients">Open Patients Hub</a>
+          </div>
+          <div class="highlight-card">
+            <span class="badge">Hospital</span>
+            <strong>Command center</strong>
+            <p>Monitor clinic visits, queue tokens, and billing status from one cockpit. Tightly coupled with Clinic Visit and Invoice DocTypes.</p>
+            <a class="btn secondary" href="/hospital">Open Hospital Ops</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="list-header">
+          <div>
+            <h2>Data-backed KPIs</h2>
+            <p class="lead">Every metric rolls up from live DocType data, so boards and command centers can act instantly.</p>
+          </div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi">
+            <span>98%</span>
+            Doctor utilization across configured schedules
+          </div>
+          <div class="kpi">
+            <span>12 min</span>
+            Average patient onboarding time
+          </div>
+          <div class="kpi">
+            <span>4 hrs</span>
+            Fastest medical billing close
+          </div>
+          <div class="kpi">
+            <span>650+</span>
+            IoT devices streaming vitals
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="list-header">
+          <div>
+            <h2>Partner with us.</h2>
+            <p class="lead">Need custom clinical pathways or device integrations? Drop a note—our team responds within one business day.</p>
+          </div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>HealthX HQ</h3>
+            <ul>
+              <li>hello@healthx.io</li>
+              <li>+44 1234 567 890</li>
+              <li>247 Diagnostic Way, London</li>
+            </ul>
+          </div>
+          <div class="form-card">
+            <form onsubmit="event.preventDefault(); HealthxWeb.showToast('Thanks! We will reach out shortly.'); this.reset();">
+              <div class="form-grid">
+                <label>Name
+                  <input type="text" placeholder="Your Name" required />
+                </label>
+                <label>Email
+                  <input type="email" placeholder="you@company.com" required />
+                </label>
+              </div>
+              <label>Message
+                <textarea placeholder="Tell us about your hospital goals"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Request Demo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="list-header">
+        <span>© <span id="year"></span> HealthX. Built on Frappe &amp; ERPNext.</span>
+        <a href="/doctors">Launch control rooms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Prevent redirect to /app/home if we're on the website
+    if (window.location.href.includes('/app/home')) {
+      window.location.replace('/');
+    }
+    
+    // Check authentication and update UI accordingly
+    (async () => {
+      const isAuthenticated = await HealthxWeb.checkAuth();
+      if (isAuthenticated) {
+        const roles = await HealthxWeb.getUserRoles();
+        const hasHospitalAdmin = roles.includes('Hospital Admin');
+        const hasDoctor = roles.includes('Doctor');
+        const hasPatient = roles.includes('Patient');
+        
+        // Update hero CTA buttons based on role
+        const heroCta = document.querySelector('.hero-cta');
+        if (heroCta) {
+          if (hasHospitalAdmin) {
+            heroCta.innerHTML = `
+              <a class="btn primary" href="/hospital">Hospital Admin Portal</a>
+              <a class="btn secondary" href="/doctors">Doctors Portal</a>
+              <a class="btn secondary" href="/patients">Patients Portal</a>
+            `;
+          } else if (hasDoctor) {
+            heroCta.innerHTML = `
+              <a class="btn primary" href="/doctors">Doctor Portal</a>
+            `;
+          } else if (hasPatient) {
+            heroCta.innerHTML = `
+              <a class="btn primary" href="/patients">Patient Portal</a>
+            `;
+          }
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

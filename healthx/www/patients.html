@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthX Patient Portal</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div data-include="/components/navbar.html"></div>
+
+  <main class="section">
+    <div class="container">
+      <span class="badge">Patient Portal</span>
+      <h1>Patient Dashboard</h1>
+      <p class="lead">Manage your profile, appointments, prescriptions, and health records.</p>
+
+      <!-- Dashboard Cards -->
+      <div class="dashboard-cards" id="dashboard-cards">
+        <div class="dashboard-card">
+          <h3>My Profile</h3>
+          <div class="value" id="profile-status">Active</div>
+          <div class="subtitle">View & Edit</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Appointments</h3>
+          <div class="value" id="appointments-count">0</div>
+          <div class="subtitle">Upcoming & Past</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Prescriptions</h3>
+          <div class="value" id="prescriptions-count">0</div>
+          <div class="subtitle">E-Prescriptions</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Medicine Orders</h3>
+          <div class="value" id="orders-count">0</div>
+          <div class="subtitle">Active Orders</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Home Services</h3>
+          <div class="value" id="services-count">0</div>
+          <div class="subtitle">Visits & Reports</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Invoices</h3>
+          <div class="value" id="invoices-count">0</div>
+          <div class="subtitle">Bills & Payments</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="section-tabs">
+        <button class="section-tab active" data-tab="profile">My Profile</button>
+        <button class="section-tab" data-tab="appointments">Appointments</button>
+        <button class="section-tab" data-tab="prescriptions">Prescriptions</button>
+        <button class="section-tab" data-tab="orders">Medicine Orders</button>
+        <button class="section-tab" data-tab="doctors">Doctors Directory</button>
+        <button class="section-tab" data-tab="services">Home Services</button>
+        <button class="section-tab" data-tab="invoices">Invoices</button>
+        <button class="section-tab" data-tab="vitals">Vitals & Health</button>
+        <button class="section-tab" data-tab="reviews">Reviews</button>
+        <button class="section-tab" data-tab="alerts">Alerts</button>
+      </div>
+
+      <!-- Tab Contents -->
+      <div id="tab-profile" class="tab-content active">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>My Profile</h2>
+              <button class="btn primary btn-sm" id="edit-profile-btn">Edit Profile</button>
+            </div>
+            <form id="profile-form">
+              <div class="form-grid">
+                <label>Full Name
+                  <input name="full_name" placeholder="Your Name" required />
+                </label>
+                <label>Gender
+                  <select name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label>Date of Birth
+                  <input type="date" name="date_of_birth" />
+                </label>
+                <label>Phone Number
+                  <input name="phone_number" type="tel" placeholder="+44 7000 123456" required />
+                </label>
+                <label>Email
+                  <input type="email" name="email" placeholder="patient@mail.com" />
+                </label>
+                <label>Country
+                  <input name="country" placeholder="India" />
+                </label>
+                <label>Preferred Language
+                  <input name="preferred_language" placeholder="English" />
+                </label>
+              </div>
+              <label>Address
+                <textarea name="address" placeholder="Apartment, Street, City"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Save Profile</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>Medical History</h2>
+                <p>Clinic Visits & Records</p>
+              </div>
+              <button class="btn secondary" id="refresh-visits" type="button">Refresh</button>
+            </div>
+            <div id="visits-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-appointments" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Book Appointment</h2>
+            </div>
+            <form id="appointment-form">
+              <div class="form-grid">
+                <label>Doctor
+                  <select id="appointment-doctor" name="doctor" required>
+                    <option value="">Select doctor</option>
+                  </select>
+                </label>
+                <label>Appointment Date
+                  <input type="datetime-local" name="appointment_date" required />
+                </label>
+                <label>Appointment Type
+                  <select name="appointment_type" required>
+                    <option value="Clinic">Clinic</option>
+                    <option value="Online">Online</option>
+                  </select>
+                </label>
+                <label>Status
+                  <select name="status" required>
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Confirmed">Confirmed</option>
+                  </select>
+                </label>
+              </div>
+              <label>Notes
+                <textarea name="notes" placeholder="Any special requirements"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Book Appointment</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>My Appointments</h2>
+                <p>Upcoming & Past</p>
+              </div>
+              <button class="btn secondary" id="refresh-appointments" type="button">Refresh</button>
+            </div>
+            <div id="appointments-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-prescriptions" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>E-Prescriptions</h2>
+              <p>Prescribed medications</p>
+            </div>
+            <button class="btn secondary" id="refresh-prescriptions" type="button">Refresh</button>
+          </div>
+          <div id="prescriptions-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-orders" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Place Medicine Order</h2>
+            </div>
+            <form id="order-form">
+              <div class="form-grid">
+                <label>Delivery Address
+                  <textarea name="delivery_address" placeholder="Full address" required></textarea>
+                </label>
+                <label>Status
+                  <select name="status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                  </select>
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Place Order</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>My Orders</h2>
+                <p>Medicine Orders</p>
+              </div>
+              <button class="btn secondary" id="refresh-orders" type="button">Refresh</button>
+            </div>
+            <div id="orders-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-doctors" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Doctors Directory</h2>
+              <p>Browse available doctors</p>
+            </div>
+            <button class="btn secondary" id="refresh-doctors" type="button">Refresh</button>
+          </div>
+          <div id="doctors-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-services" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Request Home Service</h2>
+            </div>
+            <form id="service-request-form">
+              <div class="form-grid">
+                <label>Service Type
+                  <select name="service_type" required>
+                    <option value="Sample Collection">Sample Collection</option>
+                    <option value="Health Check">Health Check</option>
+                    <option value="Nursing Care">Nursing Care</option>
+                  </select>
+                </label>
+                <label>Preferred Date
+                  <input type="date" name="preferred_date" required />
+                </label>
+                <label>Preferred Time
+                  <input type="time" name="preferred_time" required />
+                </label>
+                <label>Address
+                  <textarea name="address" placeholder="Service address" required></textarea>
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Request Service</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>Home Services</h2>
+                <p>Past & Upcoming</p>
+              </div>
+              <button class="btn secondary" id="refresh-services" type="button">Refresh</button>
+            </div>
+            <div id="services-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-invoices" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Invoices & Bills</h2>
+              <p>Payment history</p>
+            </div>
+            <button class="btn secondary" id="refresh-invoices" type="button">Refresh</button>
+          </div>
+          <div id="invoices-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-vitals" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Vitals & Health Readings</h2>
+              <p>Health metrics</p>
+            </div>
+            <button class="btn secondary" id="refresh-vitals" type="button">Refresh</button>
+          </div>
+          <div id="vitals-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-reviews" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Submit Review</h2>
+            </div>
+            <form id="review-form">
+              <div class="form-grid">
+                <label>Doctor
+                  <select id="review-doctor" name="doctor" required>
+                    <option value="">Select doctor</option>
+                  </select>
+                </label>
+                <label>Rating (1-5)
+                  <input type="number" name="rating" min="1" max="5" required />
+                </label>
+              </div>
+              <label>Review
+                <textarea name="review_text" placeholder="Your review" required></textarea>
+              </label>
+              <button class="btn primary" type="submit">Submit Review</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>My Reviews</h2>
+                <p>Submitted reviews</p>
+              </div>
+              <button class="btn secondary" id="refresh-reviews" type="button">Refresh</button>
+            </div>
+            <div id="reviews-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-alerts" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Alerts & Notifications</h2>
+              <p>Important alerts</p>
+            </div>
+            <button class="btn secondary" id="refresh-alerts" type="button">Refresh</button>
+          </div>
+          <div id="alerts-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+  <script src="./patients.js"></script>
+  <script>
+    (async () => {
+      try {
+        const isAuthenticated = await HealthxWeb.checkAuth();
+        if (!isAuthenticated) {
+          HealthxWeb.showToast('Viewing the Patient Portal in guest mode. Sign in for write access.', 'warning');
+        }
+      } catch (error) {
+        console.warn('Guest mode notice failed', error);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthX - Login</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 2rem;
+    }
+    .login-card {
+      background: white;
+      border-radius: 12px;
+      padding: 3rem;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .login-header h1 {
+      margin: 0 0 0.5rem 0;
+      color: #333;
+    }
+    .login-header p {
+      color: #666;
+      margin: 0;
+    }
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .login-form label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .login-form input {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .login-form input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    .login-error {
+      background: #fee;
+      color: #c33;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border-left: 4px solid #c33;
+      display: none;
+    }
+    .login-error.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <h1>HealthX</h1>
+        <p>Unified Digital Hospital Platform</p>
+      </div>
+      <div class="login-error" id="login-error"></div>
+      <form id="login-form" class="login-form">
+        <label>
+          Email / Username
+          <input type="text" name="usr" placeholder="Enter your email or username" required autocomplete="username" />
+        </label>
+        <label>
+          Password
+          <input type="password" name="pwd" placeholder="Enter your password" required autocomplete="current-password" />
+        </label>
+        <button class="btn primary" type="submit" style="width: 100%; margin-top: 0.5rem;">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+  <script>
+    // Prevent any automatic redirects that might be set by Frappe
+    if (window.location.search.includes('redirect-to')) {
+      const url = new URL(window.location);
+      url.searchParams.delete('redirect-to');
+      window.history.replaceState({}, '', url);
+    }
+
+    // Check if already logged in
+    (async () => {
+      const isAuthenticated = await HealthxWeb.checkAuth();
+      if (isAuthenticated) {
+        // Use replace instead of href to prevent redirect loops
+        window.location.replace('/');
+      }
+    })();
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const errorDiv = document.getElementById('login-error');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      
+      errorDiv.classList.remove('show');
+      errorDiv.textContent = '';
+      
+      // Disable submit button
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Logging in...';
+      }
+
+      const usr = formData.get('usr');
+      const pwd = formData.get('pwd');
+
+      try {
+        // Clear any redirect cookies before login
+        document.cookie = 'redirect_to=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        document.cookie = 'redirect_to=; path=/app; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        
+        const success = await HealthxWeb.login(usr, pwd);
+        if (success) {
+          // Clear redirect cookies again after login
+          document.cookie = 'redirect_to=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          document.cookie = 'redirect_to=; path=/app; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          
+          // Immediately redirect to home page, preventing any Frappe redirect
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Login';
+          }
+          window.location.replace('/');
+        } else {
+          errorDiv.textContent = 'Invalid credentials. Please try again.';
+          errorDiv.classList.add('show');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Login';
+          }
+        }
+      } catch (error) {
+        errorDiv.textContent = error.message || 'Login failed. Please try again.';
+        errorDiv.classList.add('show');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Login';
+        }
+      }
+    });
+    
+    // Prevent any redirects that might happen after page load
+    window.addEventListener('beforeunload', (e) => {
+      // Only prevent if we're trying to go to /app/home
+      if (window.location.href.includes('/app/home')) {
+        e.preventDefault();
+        window.location.replace('/');
+      }
+    });
+  </script>
+</body>
+</html>
+

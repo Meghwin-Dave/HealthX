@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthX Hospital Command Center</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div data-include="/components/navbar.html"></div>
+
+  <main class="section">
+    <div class="container">
+      <span class="badge">Hospital Admin Portal</span>
+      <h1>Hospital Command Center</h1>
+      <p class="lead">Complete administrative control over doctors, patients, appointments, inventory, and operations.</p>
+
+      <!-- Dashboard Cards -->
+      <div class="dashboard-cards" id="dashboard-cards">
+        <div class="dashboard-card">
+          <h3>Total Doctors</h3>
+          <div class="value" id="doctors-count">0</div>
+          <div class="subtitle">Active Doctors</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Total Patients</h3>
+          <div class="value" id="patients-count">0</div>
+          <div class="subtitle">Registered Patients</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Appointments</h3>
+          <div class="value" id="appointments-count">0</div>
+          <div class="subtitle">Today & Upcoming</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Clinic Visits</h3>
+          <div class="value" id="visits-count">0</div>
+          <div class="subtitle">Today's Visits</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Medicine Orders</h3>
+          <div class="value" id="orders-count">0</div>
+          <div class="subtitle">Pending Orders</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Invoices</h3>
+          <div class="value" id="invoices-count">0</div>
+          <div class="subtitle">Total Invoices</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Drugs</h3>
+          <div class="value" id="drugs-count">0</div>
+          <div class="subtitle">Pharmacy Items</div>
+        </div>
+        <div class="dashboard-card">
+          <h3>Devices</h3>
+          <div class="value" id="devices-count">0</div>
+          <div class="subtitle">IoT Devices</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="section-tabs">
+        <button class="section-tab active" data-tab="doctors">Doctors</button>
+        <button class="section-tab" data-tab="patients">Patients</button>
+        <button class="section-tab" data-tab="appointments">Appointments</button>
+        <button class="section-tab" data-tab="visits">Clinic Visits</button>
+        <button class="section-tab" data-tab="pharmacy">Pharmacy</button>
+        <button class="section-tab" data-tab="packages">Packages</button>
+        <button class="section-tab" data-tab="invoices">Invoices</button>
+        <button class="section-tab" data-tab="orders">Medicine Orders</button>
+        <button class="section-tab" data-tab="services">Home Services</button>
+        <button class="section-tab" data-tab="devices">Devices</button>
+        <button class="section-tab" data-tab="alerts">Alerts</button>
+        <button class="section-tab" data-tab="specialities">Specialities</button>
+      </div>
+
+      <!-- Tab Contents -->
+      <div id="tab-doctors" class="tab-content active">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Add Doctor</h2>
+            </div>
+            <form id="doctor-form">
+              <div class="form-grid">
+                <label>Full Name
+                  <input name="full_name" placeholder="Dr. Aarya Patel" required />
+                </label>
+                <label>Specialization
+                  <select id="doctor-specialization" name="specialization" required>
+                    <option value="">Loading...</option>
+                  </select>
+                </label>
+                <label>Experience (years)
+                  <input name="experience_years" type="number" min="0" step="1" placeholder="12" required />
+                </label>
+                <label>Consultation Fees
+                  <input name="consultation_fees" type="number" min="0" step="0.01" placeholder="1250" required />
+                </label>
+                <label>Avg. Rating (optional)
+                  <input name="rating_average" type="number" min="0" max="5" step="0.1" placeholder="4.8" />
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Add Doctor</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>All Doctors</h2>
+                <p>Doctor directory</p>
+              </div>
+              <button class="btn secondary" id="refresh-doctors" type="button">Refresh</button>
+            </div>
+            <div id="doctors-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-patients" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Add Patient</h2>
+            </div>
+            <form id="patient-form">
+              <div class="form-grid">
+                <label>Full Name
+                  <input name="full_name" placeholder="Rhea Kapoor" required />
+                </label>
+                <label>Gender
+                  <select name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label>Date of Birth
+                  <input type="date" name="date_of_birth" />
+                </label>
+                <label>Phone Number
+                  <input name="phone_number" type="tel" placeholder="+44 7000 123456" required />
+                </label>
+                <label>Email
+                  <input type="email" name="email" placeholder="patient@mail.com" />
+                </label>
+                <label>Country
+                  <input name="country" placeholder="India" />
+                </label>
+                <label>Preferred Language
+                  <input name="preferred_language" placeholder="English" />
+                </label>
+              </div>
+              <label>Address
+                <textarea name="address" placeholder="Apartment, Street, City"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Add Patient</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>All Patients</h2>
+                <p>Patient directory</p>
+              </div>
+              <button class="btn secondary" id="refresh-patients" type="button">Refresh</button>
+            </div>
+            <div id="patients-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-appointments" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Create Appointment</h2>
+            </div>
+            <form id="appointment-form">
+              <div class="form-grid">
+                <label>Patient
+                  <select id="appointment-patient" name="patient" required>
+                    <option value="">Select patient</option>
+                  </select>
+                </label>
+                <label>Doctor
+                  <select id="appointment-doctor" name="doctor" required>
+                    <option value="">Select doctor</option>
+                  </select>
+                </label>
+                <label>Appointment Date
+                  <input type="datetime-local" name="appointment_date" required />
+                </label>
+                <label>Appointment Type
+                  <select name="appointment_type" required>
+                    <option value="Clinic">Clinic</option>
+                    <option value="Online">Online</option>
+                  </select>
+                </label>
+                <label>Status
+                  <select name="status" required>
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                </label>
+              </div>
+              <label>Notes
+                <textarea name="notes" placeholder="Appointment notes"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Create Appointment</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>All Appointments</h2>
+                <p>Appointment management</p>
+              </div>
+              <button class="btn secondary" id="refresh-appointments" type="button">Refresh</button>
+            </div>
+            <div id="appointments-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-visits" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Clinic Visit form</h2>
+            </div>
+            <form id="visit-form">
+              <div class="form-grid">
+                <label>Patient
+                  <select id="visit-patient" name="patient" required>
+                    <option value="">Select patient</option>
+                  </select>
+                </label>
+                <label>Doctor
+                  <select id="visit-doctor" name="doctor" required>
+                    <option value="">Select doctor</option>
+                  </select>
+                </label>
+                <label>Visit Type
+                  <select name="visit_type" required>
+                    <option value="Walk-in">Walk-in</option>
+                    <option value="Appointment">Appointment</option>
+                    <option value="Online">Online</option>
+                  </select>
+                </label>
+                <label>Consultation Status
+                  <select name="consultation_status" required>
+                    <option value="Waiting">Waiting</option>
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                </label>
+                <label>Billing Status
+                  <select name="billing_status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Paid">Paid</option>
+                  </select>
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Save Visit</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>Visit queue</h2>
+                <p>Latest Clinic Visits</p>
+              </div>
+              <button class="btn secondary" id="refresh-visits" type="button">Refresh</button>
+            </div>
+            <div id="visit-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-pharmacy" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Add Drug</h2>
+            </div>
+            <form id="drug-form">
+              <div class="form-grid">
+                <label>Drug Name
+                  <input name="drug_name" placeholder="Paracetamol" required />
+                </label>
+                <label>Manufacturer
+                  <input name="manufacturer" placeholder="Manufacturer name" />
+                </label>
+                <label>Price
+                  <input name="price" type="number" min="0" step="0.01" placeholder="50.00" required />
+                </label>
+                <label>Stock Quantity
+                  <input name="stock_quantity" type="number" min="0" placeholder="100" />
+                </label>
+                <label>Unit
+                  <input name="unit" placeholder="Tablet" />
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Add Drug</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>Pharmacy Inventory</h2>
+                <p>Drugs & Medicines</p>
+              </div>
+              <button class="btn secondary" id="refresh-drugs" type="button">Refresh</button>
+            </div>
+            <div id="drugs-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-packages" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Add Treatment Package</h2>
+            </div>
+            <form id="package-form">
+              <div class="form-grid">
+                <label>Package Name
+                  <input name="package_name" placeholder="Health Checkup Package" required />
+                </label>
+                <label>Description
+                  <textarea name="description" placeholder="Package description"></textarea>
+                </label>
+                <label>Price
+                  <input name="price" type="number" min="0" step="0.01" placeholder="5000.00" required />
+                </label>
+                <label>Duration (days)
+                  <input name="duration_days" type="number" min="0" placeholder="30" />
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Add Package</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>Treatment Packages</h2>
+                <p>Available packages</p>
+              </div>
+              <button class="btn secondary" id="refresh-packages" type="button">Refresh</button>
+            </div>
+            <div id="packages-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-invoices" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Create Invoice</h2>
+            </div>
+            <form id="invoice-form">
+              <div class="form-grid">
+                <label>Patient
+                  <select id="invoice-patient" name="patient" required>
+                    <option value="">Select patient</option>
+                  </select>
+                </label>
+                <label>Invoice Type
+                  <select name="invoice_type" required>
+                    <option value="Consultation">Consultation</option>
+                    <option value="Package">Package</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Procedure">Procedure</option>
+                  </select>
+                </label>
+                <label>Total Amount
+                  <input name="total_amount" type="number" min="0" step="0.01" placeholder="1000.00" required />
+                </label>
+                <label>Status
+                  <select name="status" required>
+                    <option value="Draft">Draft</option>
+                    <option value="Submitted">Submitted</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Create Invoice</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>All Invoices</h2>
+                <p>Invoice management</p>
+              </div>
+              <button class="btn secondary" id="refresh-invoices" type="button">Refresh</button>
+            </div>
+            <div id="invoices-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-orders" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Medicine Orders</h2>
+              <p>All medicine orders</p>
+            </div>
+            <button class="btn secondary" id="refresh-orders" type="button">Refresh</button>
+          </div>
+          <div id="orders-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-services" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Home Services</h2>
+              <p>Service requests & visits</p>
+            </div>
+            <button class="btn secondary" id="refresh-services" type="button">Refresh</button>
+          </div>
+          <div id="services-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-devices" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Add Device</h2>
+            </div>
+            <form id="device-form">
+              <div class="form-grid">
+                <label>Device Name
+                  <input name="device_name" placeholder="Blood Pressure Monitor" required />
+                </label>
+                <label>Device Type
+                  <select id="device-type" name="device_type" required>
+                    <option value="">Select type</option>
+                  </select>
+                </label>
+                <label>Serial Number
+                  <input name="serial_number" placeholder="SN123456" />
+                </label>
+                <label>Status
+                  <select name="status" required>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Maintenance">Maintenance</option>
+                  </select>
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Add Device</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>All Devices</h2>
+                <p>IoT devices</p>
+              </div>
+              <button class="btn secondary" id="refresh-devices" type="button">Refresh</button>
+            </div>
+            <div id="devices-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-alerts" class="tab-content">
+        <div class="list-card">
+          <div class="list-header">
+            <div>
+              <h2>Alert Logs</h2>
+              <p>System alerts</p>
+            </div>
+            <button class="btn secondary" id="refresh-alerts" type="button">Refresh</button>
+          </div>
+          <div id="alerts-table" style="margin-top: 1.5rem;"></div>
+        </div>
+      </div>
+
+      <div id="tab-specialities" class="tab-content">
+        <div class="split-layout">
+          <div class="form-card">
+            <div class="list-header">
+              <h2>Add Speciality</h2>
+            </div>
+            <form id="speciality-form">
+              <div class="form-grid">
+                <label>Speciality Name
+                  <input name="speciality" placeholder="Cardiology" required />
+                </label>
+                <label>Description
+                  <textarea name="description" placeholder="Speciality description"></textarea>
+                </label>
+              </div>
+              <button class="btn primary" type="submit">Add Speciality</button>
+            </form>
+          </div>
+          <div class="list-card">
+            <div class="list-header">
+              <div>
+                <h2>All Specialities</h2>
+                <p>Medical specialities</p>
+              </div>
+              <button class="btn secondary" id="refresh-specialities" type="button">Refresh</button>
+            </div>
+            <div id="specialities-table" style="margin-top: 1.5rem;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+  <script src="./hospital.js"></script>
+  <script>
+    (async () => {
+      try {
+        const isAuthenticated = await HealthxWeb.checkAuth();
+        if (!isAuthenticated) {
+          HealthxWeb.showToast('Viewing the Hospital Command Center in guest mode. Sign in to manage data.', 'warning');
+        }
+      } catch (error) {
+        console.warn('Guest mode notice failed', error);
+      }
+    })();
+  </script>
+</body>
+</html>
