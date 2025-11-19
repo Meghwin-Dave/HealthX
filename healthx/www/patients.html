@@ -347,17 +347,5 @@
 
   <script src="./app.js"></script>
   <script src="./patients.js"></script>
-  <script>
-    (async () => {
-      try {
-        const isAuthenticated = await HealthxWeb.checkAuth();
-        if (!isAuthenticated) {
-          HealthxWeb.showToast('Viewing the Patient Portal in guest mode. Sign in for write access.', 'warning');
-        }
-      } catch (error) {
-        console.warn('Guest mode notice failed', error);
-      }
-    })();
-  </script>
 </body>
 </html>

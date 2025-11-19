@@ -249,7 +249,7 @@ def fetch_docs_sql(doctype: str, fields=None, filters=None, order_by=None, limit
         return []
 
     table_name = f"tab{doctype}"
-    if not frappe.db.has_table(table_name):
+    if not frappe.db.has_table(doctype):
         frappe.log_error(
             title="healthx.fetch_docs_sql.missing_table",
             message=f"DocType {doctype} does not have physical table {table_name}",
@@ -272,7 +272,7 @@ def fetch_docs_sql(doctype: str, fields=None, filters=None, order_by=None, limit
     elif isinstance(parsed_fields, str):
         parsed_fields = [parsed_fields]
 
-    table_columns = set(frappe.db.get_table_columns(table_name) or [])
+    table_columns = set(frappe.db.get_table_columns(doctype) or [])
     selected_fields: List[str] = []
     for field in parsed_fields:
         fieldname = str(field)
